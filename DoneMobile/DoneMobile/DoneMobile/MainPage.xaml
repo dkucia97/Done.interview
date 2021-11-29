@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DoneMobile.MainPage">
+
+    <StackLayout   >
+        <ListView ItemsSource="{Binding Cars}"
+                      RowHeight="160"
+                        x:Name="list"
+                          SeparatorVisibility="None"
+                   >
+            <ListView.ItemTemplate >
+                <DataTemplate >
+                    <ViewCell >
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Car Model : " />
+                                <Label Text="{Binding CarModel}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Weight capacity : " />
+                                <Label Text="{Binding WeightCapacity }" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Availability Time: " />
+                                <Label Text="{Binding AvailabilityTime }" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text=" Availability Place: " />
+                                <Label Text="{Binding  AvailabilityPlace }" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Button  Text="Delete" Command="{Binding Path=BindingContext.OnItemDeleteCommand, Source={x:Reference Name=list}}"  CommandParameter="{Binding .}"/>
+                                <Button Text="Update" CommandParameter="{Binding .}" Clicked="Button_Clicked_1" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Add car" Clicked="Button_Clicked"/>
+    </StackLayout>
+
+</ContentPage>

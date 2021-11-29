@@ -1,0 +1,7 @@
+create table Cars(
+	Id serial Primary key,
+	CarModel varchar,
+	WeightCapacity decimal,
+	AvailabilityTime timestamp,
+	AvailabilityPlace varchar
+)
